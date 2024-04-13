@@ -165,7 +165,7 @@ jobs:
           path: dist
 
   release:
-    name: Publish and Release files
+    name: Publish and release files
     needs:
       - verify
       - docs
@@ -204,7 +204,7 @@ jobs:
       - name: Download documentation site files
         uses: actions/download-artifact@v4
         with:
-          name: site
+          name: docs
           path: site
 
       - name: Download Helm chart files
@@ -214,7 +214,7 @@ jobs:
           path: dist
 
       - name: Merge Chart index.yaml file with documentation files
-        run: mv dist/index.yml site/index.yaml
+        run: mv dist/index.yaml site/index.yaml
 
       - name: Setup Github pages
         uses: actions/configure-pages@v4
